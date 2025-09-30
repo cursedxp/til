@@ -1,4 +1,4 @@
-# YAML Basics and Configuration Files
+# YAML Basics and Syntax
 
 ## What is YAML?
 
@@ -77,33 +77,6 @@ jobs:
       - run: npm test
 ```
 
-## The Agent OS config.yml Case Study
-
-The Agent OS configuration file demonstrates a domain-specific YAML structure:
-
-```yaml
-agent_os_version: 1.4.1  # Version tracking
-
-agents:                   # AI assistant configurations
-  claude_code:
-    enabled: false
-  cursor:
-    enabled: false
-
-project_types:           # Different project configurations
-  default:
-    instructions: ~/.agent-os/instructions
-    standards: ~/.agent-os/standards
-
-default_project_type: default  # Active configuration
-```
-
-### Key Observations
-- **Fixed schema**: Specific keys are required by Agent OS
-- **Path references**: Points to instruction directories
-- **Boolean flags**: Enable/disable specific agents
-- **Extensible sections**: Can add custom project types
-
 ## YAML vs Other Formats
 
 ### YAML vs JSON
@@ -162,3 +135,6 @@ custom_data:
 ## Key Takeaway
 
 YAML is everywhere in modern development because it strikes the perfect balance between human readability and machine parseability. Whether you're configuring containers, defining CI/CD pipelines, or setting up application configurations, YAML's clean syntax makes it the go-to choice for configuration files.
+
+## Related Topics
+- [Agent OS Config.yml Structure](../agentos/agent-os-config-yml-structure.md)
