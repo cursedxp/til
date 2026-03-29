@@ -87,34 +87,6 @@ Agents live *outside* this structure — they use files from `operations/` but m
 
 ---
 
-## GitHub API: Write Files Without Cloning
-
-You can create/update files in a GitHub repo directly via the API — no `git clone` needed.
-
-```bash
-# Encode content to base64
-content=$(echo "# My File" | base64 -w 0)
-
-# PUT the file directly to GitHub
-gh api repos/{owner}/{repo}/contents/path/to/file.md \
-  --method PUT \
-  --field message="add: my commit message" \
-  --field "content=$content"
-```
-
-For updates, you also need the file's current `sha`:
-```bash
-gh api repos/{owner}/{repo}/contents/path/to/file.md \
-  --method PUT \
-  --field message="update: my file" \
-  --field "content=$content" \
-  --field "sha=<current_file_sha>"
-```
-
-**How it works:** GitHub's REST API accepts the file content and writes it directly to the repository on their servers. No local disk writes, no clone, no push — just one API call.
-
----
-
 ## Key Insight
 
 > OpenClaw is not just a chatbot wrapper — it's a framework for giving AI **persistent identity**, **memory**, and **autonomous action** while keeping humans in control. Each agent has its own home, its own soul, and its own memory — it's less of a tool and more of a teammate.
